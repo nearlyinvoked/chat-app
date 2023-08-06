@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './index.css'
 
 type Chat = {
@@ -8,6 +8,10 @@ type Chat = {
 }
 
 function App() {
+  useEffect(() => {
+    document.title = 'Simple Chat App';
+  }, []);
+  
   const [chat, setChat] = useState<Chat[]>([])
   const [chatInput, setChatInput] = useState<string>('')
 
@@ -54,7 +58,7 @@ function App() {
               id: Math.floor(Math.random() * 1000),
               chat: chatInput,
               from: 'Kevin'
-            })}>Send</button>
+            })}>Send</button> 
           </div>
         </div>
       </div>
